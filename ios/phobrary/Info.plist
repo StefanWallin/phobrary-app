@@ -37,6 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to access your photos to be able to upload them to your phobrary server</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your photos will after approval be uploaded to a phobrary server of your choice</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

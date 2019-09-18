@@ -17,15 +17,22 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import CameraRoll from "@react-native-community/cameraroll";
 
 const App = () => {
+
+  console.log("CameraRoll: ", CameraRoll);
+  onClick = function () {
+    console.log('onClick');
+    CameraRoll.getPhotos({
+       first: 20,
+       assetType: 'Photos',
+     })
+     .then(r => {
+       console.log("r: ", r);
+     }).catch(console.err);
+  };
+
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
@@ -36,7 +43,7 @@ const App = () => {
           <View style={styles.body}>
             <Button
               title="Press me"
-              onPress={() => Alert.alert('Simple Button pressed')}
+              onPress={this.onClick}
             />
           </View>
         </ScrollView>
@@ -47,10 +54,10 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: 'white',
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: 'white',
   },
 });
 
