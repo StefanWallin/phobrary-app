@@ -15,3 +15,10 @@ If all else fails, dig into the PHAsset API and download it yourself.
 
 ## Ideas:
 - Download images from icloud web api
+
+
+## How to start:
+
+```
+react-native run-ios && npm start -- --resetCache
+```
