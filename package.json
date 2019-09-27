@@ -4,19 +4,34 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "test": "jest",
+    "ci-test": "npm run test:e2e:build && npm run test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "jest --passWithNoTests /src/.*/__tests__/*",
+    "test:e2e": "detox test -c ios.sim.debug",
+    "test:e2e:build": "detox build",
     "lint": "eslint ."
   },
   "dependencies": {
+    "deep-equal": "^1.1.0",
     "@react-native-community/cameraroll": "^1.2.1",
     "react": "16.8.6",
-    "react-native": "0.60.5"
+    "react-native": "0.60.5",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-navigation": "^3.12.1",
+    "react-native-zeroconf": "^0.11.2",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/runtime": "^7.6.0",
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "detox": "^14.2.0",
     "eslint": "^6.4.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
@@ -24,5 +39,17 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "runner-config": "e2e/config.json",
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/PhobraryAgent.app",
+        "build": "set -o pipefail && xcodebuild -project ios/PhobraryAgent.xcodeproj -UseNewBuildSystem=NO -scheme PhobraryAgent -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build | xcpretty",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    }
   }
 }
