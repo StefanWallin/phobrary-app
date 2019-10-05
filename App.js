@@ -45,7 +45,7 @@ const App = () => {
          uri: imageNode.image.uri,
          name: imageNode.image.filename,
        };
-       uploadData.append('file', fileObj);
+       uploadData.append('raw_file', fileObj);
        uploadData.append('metadata', JSON.stringify(imageNode));
 
        fetch(base_url, {

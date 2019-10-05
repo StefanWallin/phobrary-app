@@ -28,6 +28,7 @@ export default class AppStateHandler extends React.PureComponent {
       } else {
         // TODO: EVENT RESUME
       }
+      store.dispatch({ type: 'DISCOVER_SERVERS' })
       // this.refreshStore();
     } else if (this.currentAppState === 'background') {
       // TODO: EVENT BACKGROUND

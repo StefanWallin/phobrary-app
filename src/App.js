@@ -12,7 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import React, { PureComponent } from 'react';
 import LogoImage from '~components/LogoImage';
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
-import WelcomeScreen from '~screens/WelcomeScreen';
+// import WelcomeScreen from '~screens/WelcomeScreen';
 import SignInScreen from '~screens/SignInScreen';
 
 
@@ -28,13 +28,12 @@ const styles = StyleSheet.create({
 });
 
 const AppNavigator = createSwitchNavigator({
-  welcome: WelcomeScreen,
+  // welcome: WelcomeScreen,
   signIn: SignInScreen,
 },
 {
-  initialRouteName: "welcome",
-  headerMode: 'none',
-  transparentCard: true,
+  initialRouteName: "signIn",
+  backBehavior: 'initialRoute',
 });
 const AppContainer = createAppContainer(AppNavigator);
 
@@ -56,5 +55,5 @@ class App extends React.PureComponent {
 }
 
 export default connect(state => ({
-  networkActivity: state.network.activity
+  networkActivity: !!state.network.activitySources.length
 }))(App);
