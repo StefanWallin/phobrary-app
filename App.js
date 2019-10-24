@@ -57,6 +57,23 @@ const App = () => {
      });
   }
 
+  newUploadFunction = function () {
+    CameraRoll.getPhotos({
+      first: 2,
+      assetType: 'Photos',
+    }).then((r) => {
+      let fileObj = {
+        type: 'image/jpg',
+        uri: imageNode.image.uri,
+        name: imageNode.image.filename,
+      };
+      let metadata = JSON.stringify(imageNode);
+      createPhoto(fileObj, metadata);
+    });
+  }
+
+
+
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
