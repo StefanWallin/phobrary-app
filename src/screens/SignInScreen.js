@@ -6,8 +6,8 @@ import config from '~config/config'
 import colors from '~config/colors';
 import Api from '~lib/api';
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { foundServer } from '~actions/networkActions';
+import { connect} from 'react-redux';
+import store from '~src/store';
 import {
   FlatList,
   ScrollView,
@@ -20,18 +20,6 @@ class SignInScreen extends React.PureComponent {
     super(props);
   }
 
-  connectServer = (data) => {
-    // TODO: Setup session with server
-    // TODO: Mark as active server
-    // TODO: Include protocol in data?
-
-    const host = `http://${data.host}:${data.port}`;
-    Api.createSession(host).then(console.log).catch(console.log);
-    // console.log("CONNECT TO: ", data);
-    // console.log("URI: ", host);
-    // console.log("Config: ", config);
-  }
-
   render() {
     const data = Object.values(this.props.compatibleServers);
     const dataCount = Object.keys(this.props.compatibleServers).length;
@@ -41,7 +29,7 @@ class SignInScreen extends React.PureComponent {
         <Text style={{ marginLeft: 20, marginRight: 20, color: colors.white }}>Trying to find Phobrary Servers on your local network. Please note that you need to be connected to the same wifi/lan as your running phobrary server.</Text>
         {!!dataCount && (<FlatList
           data={data}
-          renderItem={({item}) => <ServerButton label={item.name} subText={item.addresses[0]} onPress={()=>{this.connectServer(item)}} />}
+          renderItem={({item}) => <ServerButton label={item.name} subText={item.addresses[0]} onPress={()=>{console.log("NOT IMPLEMENTED YET")}} />}
           keyExtractor={(item, index) => item.fullName}
           style={{
             width: '100%',

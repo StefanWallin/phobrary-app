@@ -25,9 +25,13 @@ export const identifyServer = function*() {
     yield put({ type: "NETWORKUSAGE_START", activityName });
     const { server } = result;
     const potentialHosts = deduplicateArray(server.addresses);
-    const compatibleServer = yield call(Api.discoverConnectableHost, potentialHosts, server);
-    const serverResult = { ...compatibleServer.server, host: compatibleServer.host }
-    yield put({ type: "COMPATIBLE_SERVER", server: serverResult })
+    try {
+      const compatibleServer = yield call(Api.discoverConnectableHost, potentialHosts, server);
+      const serverResult = { ...compatibleServer.server, preferredHost: compatibleServer.host }
+      yield put({ type: "COMPATIBLE_SERVER", server: serverResult });
+    } catch(error) {
+      yield put({ type: "COULD_NOT_CONNECT", server, error });
+    }
     yield put({ type: "NETWORKUSAGE_STOP", activityName });
   });
 };

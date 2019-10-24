@@ -4,8 +4,8 @@ export default class AnySuccessfulPromise {
     this.successes = [];
     this.errors = [];
     this.thenCallbacks = [];
-    this.catchCallback = () => {
-      console.error("catch not defined");
+    this.catchCallback = (error) => {
+      console.error("catch not defined", error);
     };
     this.finallyCallbacks = [];
     this.raceActive = true;
