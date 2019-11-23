@@ -14,7 +14,6 @@ import {
   ScrollView,
   Text,
 } from 'react-native';
-import { totp } from '~lib/totp';
 
 
 class SignInScreen extends React.PureComponent {
@@ -30,11 +29,6 @@ class SignInScreen extends React.PureComponent {
   }
 
   render() {
-    const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD';
-    // const totpObj = totp.totpCheckWithWindow('blarb', secret, { window: 1 });
-    // console.log(totp.verify({token: 'blarb', secret }));
-    // const totp = totpObj.code;
-    Alert.alert(ArrayBuffer.toString());
     const data = Object.values(this.props.compatibleServers);
     const dataCount = Object.keys(this.props.compatibleServers).length;
     return (

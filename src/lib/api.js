@@ -1,25 +1,10 @@
-// Shimming node crypto library for OTP generation
-// var buffer = require('safe-buffer')
-// const createHmac = require('create-hmac');
-// const randomBytes = require('randombytes');
-// const crypto = { createHmac, randomBytes };
-// module.exports = crypto;
-
-// import authenticator from 'otplib/authenticator';
-// const override = { crypto: { createHmac, randomBytes }, buffer };
-// authenticator.defaultOptions = override;
-// totp.defaultOptions = override;
-// hotp.defaultOptions = override;
-// End shimming
-
-
 import urijs from "urijs";
 import { connect } from 'react-redux';
 import config from "~config/config";
 import AnySuccesfulPromise from "~lib/anySuccessfulPromise";
 import store from '~src/store';
 
-// console.log("OTP:", otp);
+import { totp } from '~lib/totp';
 
 const apiPaths = {
   showStatus: "/api/status/v1/",
@@ -39,7 +24,7 @@ const defaultFetchOptions = {
 
 
 function request(host, path, options) {
-  if(!host || !path) throw new ArgumentError();
+  if(!host || !path) throw new Error();
   const uri = urijs(`http://${host}`)
     .pathname(path)
     .search(Api.searchPart())
@@ -49,7 +34,6 @@ function request(host, path, options) {
     ...options,
   };
   console.log("fetching: ", uri, fetchOptions);
-  return
   return fetch(uri, fetchOptions);
 }
 
@@ -83,22 +67,31 @@ class Api {
     };
   }
 
-
   static discoverConnectableHost(hosts, server) {
-    const hostPromises = [];
-    hosts.forEach(host => {
-      const port = server.port;
-      const enrichResult = { host, server, port };
-      hostPromises.push(Api.status(host, port, enrichResult));
+    // Another new promise is a work around for sagas attaching then and catch
+    // dynamically which can happen later than catch actually triggered by request.
+    return new Promise((resolve, reject) => {
+      const hostPromises = [];
+      const { port } = server;
+      hosts.forEach(host => {
+        const enrichResult = { host, server, port };
+        const address = `${host}:${port}`;
+        hostPromises.push(Api.getStatus(address, enrichResult));
+      });
+      new AnySuccesfulPromise(hostPromises).then(resolve).catch(reject);
     });
-    return new AnySuccesfulPromise(hostPromises);
   }
 
-  static status(host, port, enrichResult) {
+  static getStatus(address, enrichResult) {
     return new Promise((resolve, reject) => {
-      const failCallback = (error) => { console.info(error); };
-      request(`${host}:${port}`, apiPaths.showStatus).then((result) => {
-        resolve({ result, ...enrichResult})
+      request(address, apiPaths.showStatus).then((result) => {
+        result.json().then((json) => {
+          if(json.status == 'ok') {
+            resolve({ ...json, ...enrichResult});
+          } else {
+            reject({ ...json, ...enrichResult});
+          }
+        }).catch(reject);
       }).catch(reject);
     });
   }
@@ -114,15 +107,13 @@ class Api {
         ...Api.totpHeader(),
       })
     }
-    const requestPromise = request(state.network.uri, apiPaths.createSession, options)
+    const { selectedServer } = state.network;
+    const { preferredHost, port }  = selectedServer;
+    const requestPromise = request(`${preferredHost}:${port}`, apiPaths.createSession, options)
     const failCallback = (error) => { console.error(error); };
-    const enrichResult = {
-      selectedServer: {
-        ...state.network.selectedServer
-      }
-    }
-    return Api.parseJSON(requestPromise, enrichResult, failCallback)
+    return Api.parseJSON(requestPromise, selectedServer, failCallback)
   }
+
   static authorizedHeaders() {
     return {
       headers: new Headers({
@@ -132,12 +123,13 @@ class Api {
       })
     }
   }
+
   static totpHeader() {
     try{
       const secret = store.getState().network.selectedServer.secret;
-      // const totp = authenticator.generate(secret)
-      const totp = '';
-      return { 'X-PHOB-TOTP': totp };
+      const totpCode = totp.generate(secret)
+      console.log("totpCode: ", totpCode);
+      return { 'X-PHOB-TOTP': totpCode };
     } catch (e) {
       console.warn("BLARG!! ", e);
     }

@@ -2,26 +2,22 @@ import hotp from 'otplib/hotp';
 import totp from 'otplib/totp';
 import authenticator from 'otplib/authenticator';
 import crypto from './crypto';
-import Buffer from 'buffer';
-global.Buffer = Buffer;
 /**
- * otplib
- *
- * One-Time Password Library
- *
- * ```js
- * {
- *    authenticator // instance
- *    hotp // instance
- *    totp // instance
- * }
- * ```
- *
- * @module otplib
- * @since 3.0.0
+ * This is to supply the custom node-replica crypto lib to otplib
  */
-authenticator.defaultOptions = { crypto, Buffer };
-hotp.defaultOptions = { crypto, Buffer };
-totp.defaultOptions = { crypto, Buffer };
-
+authenticator.defaultOptions = { crypto };
+hotp.defaultOptions = { crypto };
+totp.defaultOptions = { crypto };
 export { authenticator, hotp, totp };
+
+
+// import { totp } from '~lib/totp';
+// const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD';
+// try {
+//   const isValid = totp.verify({token: 'blarb', secret })
+//   Alert.alert("isValid: " + isValid);
+// } catch (err) {
+//   // Error possibly thrown by the thirty-two package
+//   // 'Invalid input - it is not base32 encoded string'
+//   Alert.alert("error: " + err);
+// }

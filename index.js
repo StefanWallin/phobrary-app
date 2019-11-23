@@ -1,3 +1,4 @@
+import './global.js';
 import {AppRegistry} from 'react-native';
 // import App from './App.js';
 import AppStateHandler from '~src/AppStateHandler.js';
