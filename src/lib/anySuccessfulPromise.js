@@ -40,11 +40,9 @@ export default class AnySuccessfulPromise {
           }
           this.successes.push(result);
           this.raceActive = false;
-        })
-        .catch(result => {
+        }).catch(result => {
           this.errors.push(result);
-        })
-        .finally(() => {
+        }).finally(() => {
           const finishedLength = this.successes.length + this.errors.length;
           if (finishedLength === this.promises.length) {
             this.executeCallbacks();

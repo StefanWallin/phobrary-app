@@ -19,7 +19,7 @@ import {
 
 import CameraRoll from "@react-native-community/cameraroll";
 
-const App = () => {
+const App = (props) => {
 
   getPhotos = function () {
     CameraRoll.getPhotos({
@@ -71,7 +71,6 @@ const App = () => {
       createPhoto(fileObj, metadata);
     });
   }
-
 
 
   return (

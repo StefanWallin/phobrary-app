@@ -16,6 +16,7 @@ module.exports = function (api) {
           '~reducers': './src/reducers/',
           '~sagas': './src/sagas/',
           '~screens': './src/screens/',
+          '~storage': './src/storage/',
         },
         extensions: ['.js', '.ios.js', '.android.js'],
       },

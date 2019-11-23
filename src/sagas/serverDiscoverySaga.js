@@ -14,7 +14,7 @@ export const discoverServers = function*() {
 
     // TODO: Look and see how we can remove this delay when animation is moved
     // from native to a on-brand network indicator.
-    yield call(delay, 5000);
+    yield call(delay, 500);
     yield put({ type: "NETWORKUSAGE_STOP", activityName });
   });
 };
@@ -26,8 +26,8 @@ export const identifyServer = function*() {
     const { server } = result;
     const potentialHosts = deduplicateArray(server.addresses);
     try {
-      const compatibleServer = yield call(Api.discoverConnectableHost, potentialHosts, server);
-      const serverResult = { ...compatibleServer.server, preferredHost: compatibleServer.host }
+//      const json = yield call(Api.discoverConnectableHost, potentialHosts, server);
+//      const serverResult = { ...json.server, preferredHost: json.host, secret: json.secret }
       yield put({ type: "COMPATIBLE_SERVER", server: serverResult });
     } catch(error) {
       yield put({ type: "COULD_NOT_CONNECT", server, error });

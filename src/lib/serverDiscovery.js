@@ -13,13 +13,11 @@ export default class ServerDiscovery {
 
   static scan() {
     const sd = new ServerDiscovery();
-    console.log("SD: ", sd);
     sd.startScan();
   }
 
   static stop() {
     const sd = new ServerDiscovery();
-    console.log("SD: ", sd);
     sd.stopScan();
   }
 

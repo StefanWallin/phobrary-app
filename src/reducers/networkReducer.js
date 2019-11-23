@@ -5,16 +5,27 @@ const defaultState = {
   error: undefined,
   foundServers: {},
   online: false,
+  selectedServer: undefined,
+  uri: undefined
 };
 
 export default function network(state = defaultState, action) {
   switch (action.type) {
+    case 'SELECTED_SERVER':
+      const selectedServer = {
+        ...action.server,
+        uri: `${action.server.preferredHost}:${action.server.port}`,
+      };
+      return {
+        ...state,
+        selectedServer
+      };
     case 'FOUND_SERVER':
       let foundServers = {...state.foundServers};
       foundServers[action.server.fullName] = action.server;
       return {
         ...state,
-        foundServers
+        foundServers,
       };
     case 'COMPATIBLE_SERVER':
       let compatibleServers = {...state.compatibleServers};
@@ -22,7 +33,7 @@ export default function network(state = defaultState, action) {
       compatibleServers[action.server.fullName] = action.server;
       return {
         ...state,
-        compatibleServers
+        compatibleServers,
       }
     case 'NETWORKUSAGE_START':
       return {
@@ -32,7 +43,7 @@ export default function network(state = defaultState, action) {
     case 'NETWORKUSAGE_STOP':
       return {
         ...state,
-        activitySources: state.activitySources.filter((element) => { element !== action.activityName })
+        activitySources: state.activitySources.filter((element) => { element !== action.activityName }),
       }
     default:
       return state;

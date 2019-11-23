@@ -12,8 +12,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.2",
     "@react-native-community/cameraroll": "^1.2.1",
+    "buffer": "^5.4.3",
+    "crypto-js": "^3.1.9-1",
     "deep-equal": "^1.1.0",
+    "otplib": "^11.0.1",
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-device-info": "^3.1.4",
@@ -22,11 +26,13 @@
     "react-native-zeroconf": "^0.11.2",
     "react-navigation": "^3.12.1",
     "react-redux": "^7.1.1",
+    "react-timeout": "^1.2.0",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.1",
     "redux-thunk": "^2.3.0",
-    "urijs": "^1.19.1"
+    "urijs": "^1.19.1",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
