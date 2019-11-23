@@ -1,11 +1,13 @@
 import CreateSessionScreen from './CreateSessionScreen';
 import ResumeScreen from './ResumeScreen';
-import SignInScreen from './SignInScreen';
+import ServerDiscoveryScreen from './ServerDiscoveryScreen';
+import UploadScreen from './UploadScreen';
 import WelcomeScreen from './WelcomeScreen';
 
 export default {
   CreateSessionScreen,
   ResumeScreen,
-  SignInScreen,
+  ServerDiscoveryScreen,
+  UploadScreen,
   WelcomeScreen,
 }

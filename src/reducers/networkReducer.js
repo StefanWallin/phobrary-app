@@ -1,16 +1,18 @@
+import { destroySession, storeSession, retreiveSession } from '~storage/sessionStore';
+
 const defaultState = {
   activity: false,
   activitySources: [],
   compatibleServers: {},
   error: undefined,
   foundServers: {},
-  online: false,
   selectedServer: undefined,
   uri: undefined
 };
 
 export default function network(state = defaultState, action) {
   switch (action.type) {
+    case 'LOAD_SESSION_SUCCESS':
     case 'SELECTED_SERVER':
       const selectedServer = {
         ...action.server,
@@ -18,8 +20,12 @@ export default function network(state = defaultState, action) {
       };
       return {
         ...state,
-        selectedServer
+        selectedServer,
       };
+    case 'DELETE_SESSION':
+      destroySession(state.selectedServer.serverUuid);
+      return { ...state };
+
     case 'FOUND_SERVER':
       let foundServers = {...state.foundServers};
       foundServers[action.server.fullName] = action.server;

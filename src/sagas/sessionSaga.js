@@ -1,7 +1,7 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 import ServerDiscovery from '~lib/serverDiscovery';
 import Api from '~lib/api';
-import { getAccessToken } from '~storage/accessTokenStore';
+import { retreiveSession } from '~storage/sessionStore';
 import { deduplicateArray } from '~lib/helpers';
 
 // TODO: Don't forget this one when removing the delay call below.
@@ -25,10 +25,15 @@ export const createSession = function*() {
 };
 
 export const loadSession = function*() {
-  yield takeEvery('LOAD_SESSION', function*(action) {
+  yield takeEvery('COMPATIBLE_SERVER', function*(action) {
+    yield put({ type: 'LOAD_SESSION_PENDING' });
     try {
-      const result = yield call(getAccessToken);
-      yield put({ type: 'LOAD_SESSION_SUCCESS', result });
+      const result = yield call(retreiveSession, action.server.serverUuid);
+      if(result) {
+        yield put({ type: 'LOAD_SESSION_SUCCESS', server: action.server, result });
+      } else {
+        yield put({ type: 'LOAD_SESSION_ERROR', error: 'No stored session for server' });
+      }
     } catch(error) {
       yield put({ type: 'LOAD_SESSION_ERROR', error });
     }

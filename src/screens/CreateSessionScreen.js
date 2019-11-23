@@ -78,16 +78,6 @@ class CreateSessionScreen extends PureComponent {
             />
           </Fragment>
         )}
-        {sessionLoading && (
-          <Text style={{
-            textAlign: 'center',
-            color: colors.white,
-            fontSize: 18,
-            marginTop: 20
-          }}>
-            Authenticating…
-          </Text>
-        )}
       </ScrollView>
     );
   }

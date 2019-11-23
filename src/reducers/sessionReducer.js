@@ -1,37 +1,48 @@
-import { setAccessToken, getAccessToken } from '~storage/accessTokenStore';
+import { destroySession, storeSession, retreiveSession } from '~storage/sessionStore';
 
 const defaultState = {
   isLoaded: false,
   isLoading: false,
   error: undefined,
   accessToken: undefined,
-  secret: undefined
+  secret: undefined,
+  serverUuid: undefined,
 };
 
 export default function session(state = defaultState, action) {
   switch (action.type) {
-    case 'LOAD_SESSION_SUCCESS':
-      console.log(action);
+    case 'LOAD_SESSION_PENDING':
       return {
         ...state,
-      }
+        isLoading: true,
+        isLoaded: false,
+      };
+    case 'LOAD_SESSION_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
+        isLoaded: true,
+        accessToken: action.result.accessToken,
+        secret: action.result.serverSecret,
+        serverUuid: action.result.serverUuid,
+      };
     case 'CREATE_SESSION_SUCCESS':
-      const accessToken = action.result.access_token;
-      setAccessToken(accessToken)
+      const { access_token: accessToken, serverUuid, secret: serverSecret } = action.result;
+      storeSession({ serverUuid, serverSecret, accessToken });
       return {
         ...state,
         error: undefined,
         isLoaded: true,
         isLoading: false,
         accessToken,
+        secret: serverSecret,
+        serverUuid,
       };
+    case 'LOAD_SESSION_ERROR':
     case 'CREATE_SESSION_ERROR':
       return {
-        ...state,
+        ...defaultState,
         error: action.error,
-        isLoaded: true,
-        isLoading: false,
-        accessToken: undefined,
       };
     case 'CREATE_SESSION_PENDING':
       return {
@@ -42,14 +53,10 @@ export default function session(state = defaultState, action) {
         accessToken: undefined,
       };
     case 'DELETE_SESSION':
+      // destroySession(state.serverUuid);
       return {
-        ...state,
-        error: undefined,
-        isLoaded: false,
-        isLoading: false,
-        accessToken: undefined,
+        ...defaultState,
       };
-    case 'CREATE_SESSION_SUCCESS':
     default:
       return state;
   }

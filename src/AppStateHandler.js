@@ -11,7 +11,6 @@ export default ReactTimeout(class AppStateHandler extends React.PureComponent {
   constructor(props) {
     super(props);
     this.onAppStateChange('active')
-    store.dispatch({ type: 'LOAD_SESSION' });
     getDeviceID().then((value) =>{
       store.dispatch({ type: 'DEVICE_LOADED', deviceId: value});
       setTimeout(()=> {

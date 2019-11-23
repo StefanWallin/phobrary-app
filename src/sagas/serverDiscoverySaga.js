@@ -26,9 +26,13 @@ export const identifyServer = function*() {
     const { server } = result;
     const potentialHosts = deduplicateArray(server.addresses);
     try {
-      const selectedServer = yield call(Api.discoverConnectableHost, potentialHosts, server);
-      console.log("selectedServer: ", selectedServer);
-      const serverResult = { ...selectedServer.server, preferredHost: selectedServer.host, secret: selectedServer.secret }
+      const fastestServer = yield call(Api.discoverConnectableHost, potentialHosts, server);
+      const serverResult = {
+        ...fastestServer.server,
+        preferredHost: fastestServer.host,
+        secret: fastestServer.secret,
+        serverUuid: fastestServer.server_uuid,
+      }
       yield put({ type: "COMPATIBLE_SERVER", server: serverResult });
     } catch(error) {
       yield put({ type: "COULD_NOT_CONNECT", server, error });

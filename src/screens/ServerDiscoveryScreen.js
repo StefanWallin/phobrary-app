@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 
-class SignInScreen extends React.PureComponent {
+class ServerDiscoveryScreen extends React.PureComponent {
 
   constructor (props) {
     super(props);
@@ -51,7 +51,7 @@ class SignInScreen extends React.PureComponent {
             marginTop: 10,
           }}
         />)}
-        {!dataCount && (
+        {(!dataCount || this.props.sessionLoading) && (
           <Text style={{ marginTop: 40, marginLeft: 20, marginRight: 20, color: colors.white, textAlign: 'center' }}>
             No running Phobrary server found
           </Text>
@@ -64,4 +64,4 @@ class SignInScreen extends React.PureComponent {
 export default connect(state => ({
   foundServers: state.network.foundServers,
   compatibleServers: state.network.compatibleServers,
-}))(SignInScreen);
+}))(ServerDiscoveryScreen);
