@@ -7,7 +7,7 @@ import * as reducers from '~reducers';
 import rootSaga from '~sagas/_rootSaga';
 
 let ENABLE_LOGGER = false;
-ENABLE_LOGGER = true;
+// ENABLE_LOGGER = true;
 
 const sagaMiddleware = createSagaMiddleware()
 let middlewares = [thunk, sagaMiddleware];

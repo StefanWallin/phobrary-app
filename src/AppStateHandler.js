@@ -17,7 +17,7 @@ export default ReactTimeout(class AppStateHandler extends React.PureComponent {
         store.dispatch({ type: 'DISCOVER_SERVERS' });
       }, 0);
     }).catch((error)=>{
-      console.error(error);
+      return null;
     });
   }
 
@@ -43,7 +43,6 @@ export default ReactTimeout(class AppStateHandler extends React.PureComponent {
     } else if (this.currentAppState === 'background') {
       // TODO: EVENT BACKGROUND
     }
-    console.log('onAppStateChange: ', this.prevAppState, this.currentAppState);
   };
 
   render() {

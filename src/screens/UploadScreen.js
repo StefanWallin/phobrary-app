@@ -15,7 +15,6 @@ class UploadScreen extends React.PureComponent {
   }
 
   onSignOut(self) {
-    console.log(self);
     self.props.dispatch({type: 'DELETE_SESSION' });
   }
 

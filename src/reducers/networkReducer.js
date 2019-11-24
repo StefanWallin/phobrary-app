@@ -35,7 +35,6 @@ export default function network(state = defaultState, action) {
       };
     case 'COMPATIBLE_SERVER':
       let compatibleServers = {...state.compatibleServers};
-      console.log("action: ", action);
       compatibleServers[action.server.fullName] = action.server;
       return {
         ...state,

@@ -5,7 +5,7 @@ export default class AnySuccessfulPromise {
     this.errors = [];
     this.thenCallbacks = [];
     this.catchCallback = (error) => {
-      console.error("catch not defined", error);
+      // console.error("catch not defined", error);
     };
     this.finallyCallbacks = [];
     this.raceActive = true;
@@ -32,7 +32,7 @@ export default class AnySuccessfulPromise {
       promise
         .then(result => {
           if (this.thenCallbacks.length == 0) {
-            console.error("then not defined");
+            // console.error("then not defined");
             return;
           }
           if (this.raceActive) {

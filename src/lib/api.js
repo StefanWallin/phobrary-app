@@ -33,7 +33,6 @@ function request(host, path, options) {
     ...defaultFetchOptions,
     ...options,
   };
-  console.log("fetching: ", uri, fetchOptions);
   return fetch(uri, fetchOptions);
 }
 
@@ -51,7 +50,6 @@ class Api {
           reject(error);
         });
       }).catch((error) => {
-        console.log("error", error);
         failCallback(error);
         reject(error);
       });
@@ -110,7 +108,7 @@ class Api {
     const { selectedServer } = state.network;
     const { preferredHost, port }  = selectedServer;
     const requestPromise = request(`${preferredHost}:${port}`, apiPaths.createSession, options)
-    const failCallback = (error) => { console.error(error); };
+    const failCallback = (error) => { return null; };
     return Api.parseJSON(requestPromise, selectedServer, failCallback)
   }
 
@@ -125,14 +123,9 @@ class Api {
   }
 
   static totpHeader() {
-    try{
-      const secret = store.getState().network.selectedServer.secret;
-      const totpCode = totp.generate(secret)
-      console.log("totpCode: ", totpCode);
-      return { 'X-PHOB-TOTP': totpCode };
-    } catch (e) {
-      console.warn("BLARG!! ", e);
-    }
+    const secret = store.getState().network.selectedServer.secret;
+    const totpCode = totp.generate(secret)
+    return { 'X-PHOB-TOTP': totpCode };
   }
   static accessTokenHeader() {
     return { 'X-PHOB-Token': ''}

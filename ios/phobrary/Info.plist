@@ -37,16 +37,16 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need to access your photos to be able to upload them to your phobrary server</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Your photos will after approval be uploaded to a phobrary server of your choice</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string>Phobrary needs access to your camera to scan a QR code to login to your server</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your photos will after approval be uploaded to a phobrary server of your choice</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to access your photos to be able to upload them to your phobrary server</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchImage</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

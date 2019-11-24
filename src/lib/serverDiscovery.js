@@ -34,21 +34,15 @@ export default class ServerDiscovery {
       ServerDiscovery.myInstance.on('resolved', (result) => {
         store.dispatch(foundServer(result));
       });
-    } catch(error) {
-      console.warn(error);
-    }
+    } catch(error) { return null; }
   }
 
   stopScan() {
     try {
       ServerDiscovery.myInstance.stop();
-    } catch(error) {
-      console.warn(error);
-    }
+    } catch(error) { return null; }
     try {
       ServerDiscovery.myInstance.removeDeviceListeners();
-    } catch(error) {
-      console.warn(error);
-    }
+    } catch(error) { return null; }
   }
 }

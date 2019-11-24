@@ -9,12 +9,12 @@ import colors from '~config/colors';
 
 export default class WelcomeScreen extends React.PureComponent {
   onGetStarted = () => {
-    console.log("Let's get started!");
+    //console.log("Let's get started!");
   }
 
   onSignIn = () => {
     this.props.navigation.navigate('signIn');
-    console.log("Let's sign in!");
+    //console.log("Let's sign in!");
   }
 
   render() {

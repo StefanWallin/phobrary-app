@@ -8,10 +8,7 @@ async function generateDeviceId() {
   try {
     await AsyncStorage.setItem(DEVICE_ID_STORAGE_KEY, uuid);
     return uuid;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+  } catch (error) { return null; }
 }
 
 export default async function getDeviceID() {
@@ -21,8 +18,5 @@ export default async function getDeviceID() {
       value = await generateDeviceId();
     }
     return value;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+  } catch (error) { return null; }
 }
