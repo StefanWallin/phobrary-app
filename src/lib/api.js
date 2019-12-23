@@ -102,7 +102,6 @@ class Api {
       body: JSON.stringify({ one_time_code: one_time_code.toLowerCase() }),
       headers: new Headers({
         ...defaultHeaders,
-        ...Api.totpHeader(),
       })
     }
     const { selectedServer } = state.network;
