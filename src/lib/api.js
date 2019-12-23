@@ -122,7 +122,7 @@ class Api {
   }
 
   static totpHeader() {
-    const secret = store.getState().network.selectedServer.secret;
+    const secret = store.getState().session.secret;
     const totpCode = totp.generate(secret)
     return { 'X-PHOB-TOTP': totpCode };
   }

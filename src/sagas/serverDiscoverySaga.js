@@ -30,7 +30,6 @@ export const identifyServer = function*() {
       const serverResult = {
         ...fastestServer.server,
         preferredHost: fastestServer.host,
-        secret: fastestServer.secret,
         serverUuid: fastestServer.server_uuid,
       }
       yield put({ type: "COMPATIBLE_SERVER", server: serverResult });
