@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemon-spawn (0.4.2)
+    dnssd (3.0.1)
+    forking (0.1)
+      daemon-spawn
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dnssd (~> 3.0.1)
+  forking
+
+BUNDLED WITH
+   2.0.2

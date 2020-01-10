@@ -19,7 +19,7 @@ import {
 
 import CameraRoll from "@react-native-community/cameraroll";
 
-const App = () => {
+const App = (props) => {
 
   getPhotos = function () {
     CameraRoll.getPhotos({
@@ -27,8 +27,10 @@ const App = () => {
        assetType: 'Photos',
      })
      .then(r => {
-       console.log("r: ", r);
-     }).catch(console.err);
+       // console.log("r: ", r);
+     }).catch(()=>{
+       //console.err
+     });
   };
 
   uploadPhotoData = function () {
@@ -38,24 +40,40 @@ const App = () => {
      }).then((r) => {
        let base_url = 'http://localhost:3000/api/photos/v1/';
        let imageNode = r.edges[0].node;
-       console.log(r.edges[0]);
+       // console.log(r.edges[0]);
        let uploadData = new FormData();
        let fileObj = {
          type: 'image/jpg',
          uri: imageNode.image.uri,
          name: imageNode.image.filename,
        };
-       uploadData.append('file', fileObj);
+       uploadData.append('raw_file', fileObj);
        uploadData.append('metadata', JSON.stringify(imageNode));
 
        fetch(base_url, {
          method: 'post',
          body: uploadData,
        }).then((response) => {
-         console.log("Response", response);
+         // console.log("Response", response);
        });
      });
   }
+
+  newUploadFunction = function () {
+    CameraRoll.getPhotos({
+      first: 2,
+      assetType: 'Photos',
+    }).then((r) => {
+      let fileObj = {
+        type: 'image/jpg',
+        uri: imageNode.image.uri,
+        name: imageNode.image.filename,
+      };
+      let metadata = JSON.stringify(imageNode);
+      createPhoto(fileObj, metadata);
+    });
+  }
+
 
   return (
     <Fragment>
