@@ -19,25 +19,10 @@ jobs:
           paths:
             - node_modules
 
-      - run:
-          name: npm test
-          command: |
-            mkdir -p test-results/jest
-            npm test
-          environment:
-            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
-
       - persist_to_workspace:
-          root: ~/phobrary-agent
+          root: ~/phobrary
           paths:
             - node_modules
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
-
   # android:
   #   working_directory: ~/phobrary-agent/android
   #   docker:
@@ -153,9 +138,9 @@ workflows:
   node-android-ios:
     jobs:
       - node
-      - android:
-          requires:
-            - node
+      # - android:
+      #     requires:
+      #       - node
       - ios:
           requires:
             - node
