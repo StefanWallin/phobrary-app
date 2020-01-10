@@ -1,0 +1,161 @@
+version: 2
+jobs:
+  node:
+    working_directory: ~/phobrary
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+            - node_modules-v1-{{ arch }}
+
+      - run: npm ci
+
+      - save_cache:
+          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: npm test
+          command: |
+            mkdir -p test-results/jest
+            npm test
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
+
+      - persist_to_workspace:
+          root: ~/phobrary-agent
+          paths:
+            - node_modules
+
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
+
+  # android:
+  #   working_directory: ~/phobrary-agent/android
+  #   docker:
+  #     - image: circleci/android:api-28-node
+  #   steps:
+  #     - checkout:
+  #         path: ~/phobrary-agent
+  #
+  #     - attach_workspace:
+  #         at: ~/phobrary-agent
+  #
+  #     - restore_cache:
+  #         keys:
+  #           - bundle-v1-{{ arch }}-{{ checksum "../Gemfile.lock" }}
+  #           - bundle-v1-{{ arch }}-
+  #
+  #     - run:
+  #         command: bundle install
+  #         working_directory: ~/phobrary-agent/
+  #
+  #     - save_cache:
+  #         key: bundle-v1-{{ arch }}-{{ checksum "../Gemfile.lock" }}
+  #         paths:
+  #           - vendor/bundle
+      #
+      # - run:
+      #     name: fastlane tests
+      #     command: |
+      #       mkdir -p test-results/fastlane
+      #       bundle exec fastlane test
+      #       mv fastlane/report.xml test-results/fastlane
+      #
+      # - store_test_results:
+      #     path: test-results
+      #
+      # - store_artifacts:
+      #     path: test-results
+
+  ios:
+    macos:
+      xcode: "10.2.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    working_directory: ~/phobrary-agent
+
+    # use a --login shell so our "set Ruby version" command gets picked up for later steps
+    shell: /bin/bash --login -eo pipefail
+
+    steps:
+      - checkout
+
+      - run:
+          name: set Ruby version
+          command: echo "ruby-2.5.5" > ~/phobrary-agent/.ruby-version
+
+      - restore_cache:
+          keys:
+            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+            - node_modules-v1-{{ arch }}-
+
+      # not using a workspace here as Node and Yarn versions
+      # differ between our macOS executor image and the Docker containers above
+      - run: npm ci
+
+      - save_cache:
+          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      - restore_cache:
+          keys:
+            - bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - bundle-v1-{{ arch }}
+
+
+      - run:
+          command: bundle install
+
+
+      - save_cache:
+          key: bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Install applesimutils
+          command: brew tap wix/brew && brew install applesimutils --HEAD
+
+      - run:
+          command: npm run ci-test
+
+      # - run:
+      #     command: bundle exec fastlane test
+      #     working_directory: ios
+      #
+      # - run:
+      #     name: set up test results
+      #     working_directory: ios
+      #     when: always
+      #     command: |
+      #       mkdir -p test-results/fastlane test-results/xcode
+      #       mv fastlane/report.xml test-results/fastlane
+      #       mv fastlane/test_output/report.junit test-results/xcode/junit.xml
+      #
+      # - store_test_results:
+      #     path: ios/test-results
+      #
+      # - store_artifacts:
+      #     path: ios/test-results
+
+workflows:
+  version: 2
+  node-android-ios:
+    jobs:
+      - node
+      - android:
+          requires:
+            - node
+      - ios:
+          requires:
+            - node
