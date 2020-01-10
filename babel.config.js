@@ -17,6 +17,7 @@ module.exports = function (api) {
           '~sagas': './src/sagas/',
           '~screens': './src/screens/',
           '~storage': './src/storage/',
+          '~e2e': './e2e/',
         },
         extensions: ['.js', '.ios.js', '.android.js'],
       },

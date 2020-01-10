@@ -1,9 +1,7 @@
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';

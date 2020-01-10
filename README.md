@@ -18,7 +18,23 @@ If all else fails, dig into the PHAsset API and download it yourself.
 
 
 ## How to start:
-
 ```
 react-native run-ios && npm start -- --resetCache
+```
+
+## How to setup test-environment:
+```
+brew tap wix/brew
+brew install applesimutils
+npm ci
+```
+
+## How to rebuild test executable
+```
+npm run test:e2e:build
+```
+
+## How to run tests:
+```
+npm test
 ```
