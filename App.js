@@ -3,10 +3,10 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
+ * @flow strict-local
  */
 
-import React, {Fragment} from 'react';
+import React from 'react';
 import {
   Alert,
   Button,
@@ -19,7 +19,7 @@ import {
 
 import CameraRoll from "@react-native-community/cameraroll";
 
-const App = (props) => {
+const App: () => React$Node (props) => {
 
   getPhotos = function () {
     CameraRoll.getPhotos({
@@ -76,7 +76,7 @@ const App = (props) => {
 
 
   return (
-    <Fragment>
+    <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -94,7 +94,7 @@ const App = (props) => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </Fragment>
+    </>
   );
 };
 
