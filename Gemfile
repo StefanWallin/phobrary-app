@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# ios
+gem 'cocoapods'
+
 # Discoverability over MDNS
 gem 'dnssd', '~> 3.0.1'
 gem 'forking'
