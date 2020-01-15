@@ -7,7 +7,6 @@ const startMockServer = (port) => new Promise((resolve) => {
   _port = port;
   res = mockserver.start_mockserver({
       serverPort: port,
-      trace: true,
       verbose: true
   });
   resolve(mockserver);
