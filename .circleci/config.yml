@@ -1,0 +1,103 @@
+version: 2
+jobs:
+  ios:
+    macos:
+      xcode: "11.3.0"
+    environment:
+      FL_OUTPUT_DIR: output
+    working_directory: ~/phobrary-agent
+    shell: /bin/bash --login -eo pipefail
+
+    steps:
+      - checkout
+
+      ## Rubygems
+      - run:
+          name: Set Ruby Version
+          command: echo 'chruby `cat .ruby-version`' >> ~/.bash_profile
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+      - restore_cache:
+          keys:
+            - bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - bundle-v1-{{ arch }}
+      - run:
+          command: bundle install
+      - save_cache:
+          key: bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      ## NPM
+      - restore_cache:
+          keys:
+            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+            - node_modules-v1-{{ arch }}-
+      - run: npm ci
+      - save_cache:
+          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      ## Pods
+      - restore_cache:
+          keys:
+            - pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
+            - pods-v1-{{ arch }}-
+      - run: cd ios; bundle exec pod install
+      - save_cache:
+          key: pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
+          paths:
+            - ios/Pods
+
+
+      ## Test utilities
+      - run:
+          name: Install applesimutils
+          command: brew tap wix/brew && brew install applesimutils --HEAD
+
+      ## Tests
+      - run:
+          name: Build Detox Test Binary
+          command: npm run test:e2e:build
+
+      - run:
+          name: Run Unit Test Suite
+          command: npm run test:unit
+
+      - run:
+          name: Run End-2-End Test Suite
+          command: npm run test:e2e
+
+      - store_test_results:
+          path: artifacts
+
+      # - run:
+      #   name: Linting
+      #   command: npm run lint
+
+      # - run:
+      #     command: bundle exec fastlane test
+      #     working_directory: ios
+      #
+      # - run:
+      #     name: set up test results
+      #     working_directory: ios
+      #     when: always
+      #     command: |
+      #       mkdir -p test-results/fastlane test-results/xcode
+      #       mv fastlane/report.xml test-results/fastlane
+      #       mv fastlane/test_output/report.junit test-results/xcode/junit.xml
+      #
+      # - store_test_results:
+      #     path: ios/test-results
+      #
+      # - store_artifacts:
+      #     path: ios/test-results
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - ios

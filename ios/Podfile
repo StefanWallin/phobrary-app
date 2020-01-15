@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-
 target 'phobrary' do
   # Pods for phobrary
   pod 'React', :path => '../node_modules/react-native/'
@@ -16,34 +17,14 @@ target 'phobrary' do
   pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
   pod 'React-RCTVibration', :path => '../node_modules/react-native/Libraries/Vibration'
   pod 'React-RCTWebSocket', :path => '../node_modules/react-native/Libraries/WebSocket'
-
   pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-
-  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
-
-  target 'phobraryTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   use_native_modules!
-end
-
-target 'phobrary-tvOS' do
-  # Pods for phobrary-tvOS
-
-  target 'phobrary-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 end
