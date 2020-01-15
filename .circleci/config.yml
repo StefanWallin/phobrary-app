@@ -63,7 +63,7 @@ jobs:
 
   ios:
     macos:
-      xcode: "10.2.1"
+      xcode: "11.3.0"
     environment:
       FL_OUTPUT_DIR: output
     working_directory: ~/phobrary-agent
@@ -74,9 +74,9 @@ jobs:
     steps:
       - checkout
 
-      # - run:
-      #     name: set Ruby version
-      #     command: echo "ruby-2.5.5" > ~/phobrary-agent/.ruby-version
+      - run:
+          name: Set Ruby Version
+          command: echo 'chruby `cat .ruby-version`' >> ~/.bash_profile  # Replace 2.6 with the specific version of Ruby here.
 
       - restore_cache:
           keys:
