@@ -1,76 +1,11 @@
 version: 2
 jobs:
-  node:
-    working_directory: ~/phobrary
-    docker:
-      - image: circleci/ruby:2.6.5-stretch-node
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
-            - node_modules-v1-{{ arch }}
-
-      - run: npm ci
-
-      - run: npm run lint
-
-      - save_cache:
-          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-
-      - persist_to_workspace:
-          root: ~/phobrary
-          paths:
-            - node_modules
-  # android:
-  #   working_directory: ~/phobrary-agent/android
-  #   docker:
-  #     - image: circleci/android:api-28-node
-  #   steps:
-  #     - checkout:
-  #         path: ~/phobrary-agent
-  #
-  #     - attach_workspace:
-  #         at: ~/phobrary-agent
-  #
-  #     - restore_cache:
-  #         keys:
-  #           - bundle-v1-{{ arch }}-{{ checksum "../Gemfile.lock" }}
-  #           - bundle-v1-{{ arch }}-
-  #
-  #     - run:
-  #         command: bundle install
-  #         working_directory: ~/phobrary-agent/
-  #
-  #     - save_cache:
-  #         key: bundle-v1-{{ arch }}-{{ checksum "../Gemfile.lock" }}
-  #         paths:
-  #           - vendor/bundle
-      #
-      # - run:
-      #     name: fastlane tests
-      #     command: |
-      #       mkdir -p test-results/fastlane
-      #       bundle exec fastlane test
-      #       mv fastlane/report.xml test-results/fastlane
-      #
-      # - store_test_results:
-      #     path: test-results
-      #
-      # - store_artifacts:
-      #     path: test-results
-
   ios:
     macos:
       xcode: "11.3.0"
     environment:
       FL_OUTPUT_DIR: output
     working_directory: ~/phobrary-agent
-
-    # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -eo pipefail
 
     steps:
@@ -139,6 +74,10 @@ jobs:
           path: artifacts
 
       # - run:
+      #   name: Linting
+      #   command: npm run lint
+
+      # - run:
       #     command: bundle exec fastlane test
       #     working_directory: ios
       #
@@ -159,12 +98,6 @@ jobs:
 
 workflows:
   version: 2
-  node-android-ios:
+  build-and-test:
     jobs:
-      # - node
-      # - android:
-      #     requires:
-      #       - node
       - ios:
-          requires:
-            - node
