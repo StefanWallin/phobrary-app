@@ -3,7 +3,7 @@ jobs:
   node:
     working_directory: ~/phobrary
     docker:
-      - image: circleci/node:latest
+      - image: circleci/ruby:2.6.5-node
     steps:
       - checkout
 
@@ -74,9 +74,9 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: set Ruby version
-          command: echo "ruby-2.5.5" > ~/phobrary-agent/.ruby-version
+      # - run:
+      #     name: set Ruby version
+      #     command: echo "ruby-2.5.5" > ~/phobrary-agent/.ruby-version
 
       - restore_cache:
           keys:
