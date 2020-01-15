@@ -74,43 +74,41 @@ jobs:
     steps:
       - checkout
 
+      ## Rubygems
       - run:
           name: Set Ruby Version
-          command: echo 'chruby `cat .ruby-version`' >> ~/.bash_profile  # Replace 2.6 with the specific version of Ruby here.
-
-      - restore_cache:
-          keys:
-            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
-            - node_modules-v1-{{ arch }}-
-
-      # not using a workspace here as Node and Yarn versions
-      # differ between our macOS executor image and the Docker containers above
-      - run: npm ci
-
-      - save_cache:
-          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-
+          command: echo 'chruby `cat .ruby-version`' >> ~/.bash_profile
+      - run:
+          name: Install Bundler
+          command: gem install bundler
       - restore_cache:
           keys:
             - bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
             - bundle-v1-{{ arch }}
-
-
       - run:
           command: bundle install
-
-
       - save_cache:
           key: bundle-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
+      ## NPM
+      - restore_cache:
+          keys:
+            - node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+            - node_modules-v1-{{ arch }}-
+      - run: npm ci
+      - save_cache:
+          key: node_modules-v1-{{ arch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      ## Test utilities
       - run:
           name: Install applesimutils
           command: brew tap wix/brew && brew install applesimutils --HEAD
 
+      ## Tests
       - run:
           command: npm run ci-test
 
