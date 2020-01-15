@@ -3,7 +3,7 @@ jobs:
   node:
     working_directory: ~/phobrary
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.5-stretch-node
     steps:
       - checkout
 
