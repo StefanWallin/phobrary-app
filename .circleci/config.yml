@@ -103,6 +103,18 @@ jobs:
           paths:
             - node_modules
 
+      ## Pods
+      - restore_cache:
+          keys:
+            - pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
+            - pods-v1-{{ arch }}-
+      - run: cd ios; bundle exec pod install
+      - save_cache:
+          key: pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
+          paths:
+            - ios/Pods
+
+
       ## Test utilities
       - run:
           name: Install applesimutils
