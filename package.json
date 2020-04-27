@@ -17,7 +17,7 @@
     "babel-plugin-rewrite-require": "^1.14.5",
     "buffer": "^5.4.3",
     "crypto-js": "^3.1.9-1",
-    "deep-equal": "^1.1.1",
+    "deep-equal": "^2.0.3",
     "node-libs-browser": "^2.2.1",
     "otplib": "^11.0.1",
     "react": "16.8.6",
