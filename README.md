@@ -1,8 +1,10 @@
-# Phobrary RN 0.60 App
+# Phobrary RN 0.63.4 App
 React Native phobrary companion app.
 
 ## TODO:
 Things to check out to try and read photo raw data as jpeg below:
+
+- Try out hermes: https://reactnative.dev/docs/hermes
 
 - https://github.com/malsapp/react-native-photo-upload
 - https://github.com/react-native-community/react-native-cameraroll/blob/75e325dcfe556ed508ea0fa9ae9a0c396ce3c906/example/js/CameraRollExample.js

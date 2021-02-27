@@ -1,7 +1,7 @@
 import React from 'react';
 import images from '~images';
 import { Image, StyleSheet, View } from 'react-native';
-const Dimensions = require('Dimensions');
+import { Dimensions } from 'react-native';
 
 
 const styles = StyleSheet.create({

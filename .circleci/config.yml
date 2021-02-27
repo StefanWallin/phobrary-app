@@ -2,7 +2,7 @@ version: 2
 jobs:
   ios:
     macos:
-      xcode: "11.3.0"
+      xcode: "12.4.0"
     environment:
       FL_OUTPUT_DIR: output
     working_directory: ~/phobrary-agent
@@ -45,7 +45,8 @@ jobs:
           keys:
             - pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
             - pods-v1-{{ arch }}-
-      - run: cd ios; bundle exec pod install
+        # We should be able to remove Folly local update here in the future
+      - run: cd ios; pod update Folly --no-repo-update; bundle exec pod install
       - save_cache:
           key: pods-v1-{{ arch }}-{{ checksum "ios/Podfile.lock" }}
           paths:

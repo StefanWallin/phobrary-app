@@ -10,8 +10,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		F610C3C3238AC68100C4E340 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610C3C1238AC68000C4E340 /* LaunchScreen.xib */; };
-		F743355148A80EBB64F30F42 /* libPods-phobrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C990C93DB2812A508EDCA1F /* libPods-phobrary.a */; };
+		EF54B9FE7194873DF5DBAC32 /* libPods-phobrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C1BDB9040F2F399292802 /* libPods-phobrary.a */; };
+		F6278EFE25E71589001A0434 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6278EFC25E71589001A0434 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,27 +28,19 @@
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* phobraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = phobraryTests.m; sourceTree = "<group>"; };
-		0C990C93DB2812A508EDCA1F /* libPods-phobrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phobrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EAD17B6E81CB2E33F68895F /* Pods-phobrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary.debug.xcconfig"; path = "Target Support Files/Pods-phobrary/Pods-phobrary.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* phobrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phobrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = phobrary/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = phobrary/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = phobrary/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = phobrary/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = phobrary/main.m; sourceTree = "<group>"; };
-		21B1A544C4413A055206E575 /* Pods-phobrary-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-phobrary-tvOS/Pods-phobrary-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		2A3769D1F1AAF26F49AC4F38 /* Pods-phobraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobraryTests.release.xcconfig"; path = "Target Support Files/Pods-phobraryTests/Pods-phobraryTests.release.xcconfig"; sourceTree = "<group>"; };
-		38AEF6A0E4F9EE42F8C1ABA8 /* libPods-phobraryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phobraryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		577DE7F98BB1271C1F189C55 /* libPods-phobrary-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phobrary-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6799AFE7258BEEEE87058E98 /* Pods-phobrary-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary-tvOS.release.xcconfig"; path = "Target Support Files/Pods-phobrary-tvOS/Pods-phobrary-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		684FA686A59716F1E6CBB0DC /* Pods-phobrary-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-phobrary-tvOSTests/Pods-phobrary-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		796289E04AE157BC3ED28FC0 /* libPods-phobrary-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phobrary-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5BFE3A63D8C53277AE3DC04 /* Pods-phobrary-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-phobrary-tvOSTests/Pods-phobrary-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DE6A5D557FBC37794BF18D34 /* Pods-phobraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobraryTests.debug.xcconfig"; path = "Target Support Files/Pods-phobraryTests/Pods-phobraryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E1C20AB0B291BD686A24AD7E /* Pods-phobrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary.release.xcconfig"; path = "Target Support Files/Pods-phobrary/Pods-phobrary.release.xcconfig"; sourceTree = "<group>"; };
+		908C1BDB9040F2F399292802 /* libPods-phobrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-phobrary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6D73EED4A3E46E1CB73198 /* Pods-phobrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary.release.xcconfig"; path = "Target Support Files/Pods-phobrary/Pods-phobrary.release.xcconfig"; sourceTree = "<group>"; };
+		ABE3D73A09D37362144B141E /* Pods-phobrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-phobrary.debug.xcconfig"; path = "Target Support Files/Pods-phobrary/Pods-phobrary.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F610C3C2238AC68000C4E340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = phobrary/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F6278DA125E70B19001A0434 /* phobrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "phobrary-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6278EFD25E71589001A0434 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F6F3E42C2332C9CD00F11712 /* RNCCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCCameraRoll.xcodeproj; path = "../node_modules/@react-native-community/cameraroll/ios/RNCCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F743355148A80EBB64F30F42 /* libPods-phobrary.a in Frameworks */,
+				EF54B9FE7194873DF5DBAC32 /* libPods-phobrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +76,14 @@
 		13B07FAE1A68108700A75B9A /* phobrary */ = {
 			isa = PBXGroup;
 			children = (
-				F610C3C1238AC68000C4E340 /* LaunchScreen.xib */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F6278DA125E70B19001A0434 /* phobrary-Bridging-Header.h */,
+				F6278EFC25E71589001A0434 /* LaunchScreen.xib */,
 			);
 			name = phobrary;
 			sourceTree = "<group>";
@@ -100,10 +93,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				0C990C93DB2812A508EDCA1F /* libPods-phobrary.a */,
-				796289E04AE157BC3ED28FC0 /* libPods-phobrary-tvOS.a */,
-				577DE7F98BB1271C1F189C55 /* libPods-phobrary-tvOSTests.a */,
-				38AEF6A0E4F9EE42F8C1ABA8 /* libPods-phobraryTests.a */,
+				908C1BDB9040F2F399292802 /* libPods-phobrary.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,14 +140,8 @@
 		F7C7DA09D0C7010C51DF46A9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0EAD17B6E81CB2E33F68895F /* Pods-phobrary.debug.xcconfig */,
-				E1C20AB0B291BD686A24AD7E /* Pods-phobrary.release.xcconfig */,
-				21B1A544C4413A055206E575 /* Pods-phobrary-tvOS.debug.xcconfig */,
-				6799AFE7258BEEEE87058E98 /* Pods-phobrary-tvOS.release.xcconfig */,
-				D5BFE3A63D8C53277AE3DC04 /* Pods-phobrary-tvOSTests.debug.xcconfig */,
-				684FA686A59716F1E6CBB0DC /* Pods-phobrary-tvOSTests.release.xcconfig */,
-				DE6A5D557FBC37794BF18D34 /* Pods-phobraryTests.debug.xcconfig */,
-				2A3769D1F1AAF26F49AC4F38 /* Pods-phobraryTests.release.xcconfig */,
+				ABE3D73A09D37362144B141E /* Pods-phobrary.debug.xcconfig */,
+				9D6D73EED4A3E46E1CB73198 /* Pods-phobrary.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -169,12 +153,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "phobrary" */;
 			buildPhases = (
-				6631283A6E3B6344BEA6568D /* [CP] Check Pods Manifest.lock */,
+				8B681CFE68E15D08297AF706 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				16BF1A85DD9DDAE2B17CC94D /* [CP] Embed Pods Frameworks */,
+				89526055654ED1CD0F657BA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,11 +177,12 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = "Stefan Wallin";
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BV32TNEZ63;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -239,7 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F610C3C3238AC68100C4E340 /* LaunchScreen.xib in Resources */,
+				F6278EFE25E71589001A0434 /* LaunchScreen.xib in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +248,43 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		6631283A6E3B6344BEA6568D /* [CP] Check Pods Manifest.lock */ = {
+		16BF1A85DD9DDAE2B17CC94D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phobrary/Pods-phobrary-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-phobrary/Pods-phobrary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89526055654ED1CD0F657BA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-phobrary/Pods-phobrary-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-phobrary/Pods-phobrary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B681CFE68E15D08297AF706 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,10 +340,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F610C3C1238AC68000C4E340 /* LaunchScreen.xib */ = {
+		F6278EFC25E71589001A0434 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F610C3C2238AC68000C4E340 /* Base */,
+				F6278EFD25E71589001A0434 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -330,14 +353,17 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EAD17B6E81CB2E33F68895F /* Pods-phobrary.debug.xcconfig */;
+			baseConfigurationReference = ABE3D73A09D37362144B141E /* Pods-phobrary.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BV32TNEZ63;
 				INFOPLIST_FILE = phobrary/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -345,19 +371,25 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.stefan-wallin.phobrary";
 				PRODUCT_NAME = phobrary;
+				SWIFT_OBJC_BRIDGING_HEADER = "phobrary-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1C20AB0B291BD686A24AD7E /* Pods-phobrary.release.xcconfig */;
+			baseConfigurationReference = 9D6D73EED4A3E46E1CB73198 /* Pods-phobrary.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV32TNEZ63;
 				INFOPLIST_FILE = phobrary/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -365,6 +397,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "se.stefan-wallin.phobrary";
 				PRODUCT_NAME = phobrary;
+				SWIFT_OBJC_BRIDGING_HEADER = "phobrary-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -373,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -391,6 +426,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -415,7 +451,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -426,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -444,6 +486,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -461,7 +504,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
