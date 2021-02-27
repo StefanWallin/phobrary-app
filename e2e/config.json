@@ -1,4 +1,7 @@
 {
   "setupFilesAfterEnv" : ["./init.js"],
-  "reporters": ["default", "jest-junit"]
+  "reporters": ["default", "jest-junit"],
+  "testEnvironment": "node",
+  "bail": true,
+  "verbose": true
 }
