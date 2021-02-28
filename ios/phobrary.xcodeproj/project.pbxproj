@@ -12,6 +12,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		EF54B9FE7194873DF5DBAC32 /* libPods-phobrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 908C1BDB9040F2F399292802 /* libPods-phobrary.a */; };
 		F6278EFE25E71589001A0434 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6278EFC25E71589001A0434 /* LaunchScreen.xib */; };
+		F6F1214325EBC2BC0076BBD1 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F1214225EBC2BC0076BBD1 /* libBVLinearGradient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F6278DA125E70B19001A0434 /* phobrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "phobrary-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6278EFD25E71589001A0434 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F6F1214225EBC2BC0076BBD1 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F3E42C2332C9CD00F11712 /* RNCCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCCameraRoll.xcodeproj; path = "../node_modules/@react-native-community/cameraroll/ios/RNCCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F1214325EBC2BC0076BBD1 /* libBVLinearGradient.a in Frameworks */,
 				EF54B9FE7194873DF5DBAC32 /* libPods-phobrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6F1214225EBC2BC0076BBD1 /* libBVLinearGradient.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				908C1BDB9040F2F399292802 /* libPods-phobrary.a */,
