@@ -10,5 +10,5 @@ end
 gem 'cocoapods'
 
 # Discoverability over MDNS
-gem 'dnssd', '~> 3.0.1'
+gem 'dnssd', '~> 3.0.2'
 gem 'forking'
